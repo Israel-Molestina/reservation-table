@@ -1,7 +1,8 @@
 // requireing dependencies express + path
 const express = require('express');
 const path = require('path');
-
+const tables = require('./tables');
+const waitlist = require('./waitlist')
 // set up express w/ two constants one for app and one for port
 
 const app = express();
