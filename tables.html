@@ -37,7 +37,7 @@
 
             </div>
         </div>
-<!--footer-->
+        <!--footer-->
         <footer class="footer">
             <div class="container">
                 <p>
@@ -49,50 +49,60 @@
             </div>
         </footer>
     </div>
-<!--Scripts-->
-<script>
+    <!--Scripts-->
+    <script>
+        //Write GET fetch request to get data and display for Reserved Table
+        readyPage();
+        function readyPage() {
+            
 
-    //Write GET fetch request to get data and display for Reserved Table
+            // Question: What does this code do?
+            // let name = document.getElementById('name').value.trim();
+            // let phoneNumber = document.getElementById('phone-number').value.trim();
+            // let email = document.getElementById('email').value.trim();
+            // let id= document.getElementById('unique-id').value.trim();
 
-addBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+            // let newTables = {
+            // name: charName,
+            // role: charRole,
+            // age: parseInt(charAge),
+            // forcePoints: parseInt(charFp),
+            
+        
+
+        //Write GET fetch request to get data and dispaly for WaitList 
+
+        fetch('/api/tables',{
+
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+
+        })
+
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+        })
+
+        fetch('/api/waitlist',{
+
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+
+        })
+
+        .then((response) => response.json())
+        .then((data) => {
+        console.log(data);
+        })
+    }
     
-    // Question: What does this code do?
-    let name = document.getElementById('name').value.trim();
-    let phoneNumber = document.getElementById('phone-number').value.trim();
-    let email = document.getElementById('email').value.trim();
-    let id= document.getElementById('unique-id').value.trim();
+
+    </script>
     
-    let newTables = {
-    name: charName,
-    role: charRole,
-    age: parseInt(charAge),
-    forcePoints: parseInt(charFp),
-    
-};
-
-//Write GET fetch request to get data and dispaly for WaitList 
-
-fetch('api/tables',{
-
-    method='GET',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    //body: JSON.stringify(newTable),
-})
-
-.then((response) => response.json())
-.then((data) => {
-    console.log(data);
-})
-
-
-
-
-
-
-
-</script>
 </body>
 </html>
