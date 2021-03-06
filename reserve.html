@@ -15,13 +15,13 @@
           <h1 class="fa fa-fire" style="font-size: 30px;">Hot Restaurants</h1>
           <h3>Make your reservation</h3>
           <hr />
-          <a href="/tables.html">
+          <a href="/tables">
             <button class="btn btn-success btn-lg">
               <span class="fa fa-book"></span> View Tables
             </button>
           </a>
           
-          <a href="/home.html">
+          <a href="/home">
             <button class="btn btn-success btn-lg">
               <span class="fa fa-utensils"></span> 
             </button>
@@ -84,12 +84,11 @@
       
   const addBtn = document.getElementById('add-btn');
   
-  // Question: What is "e" short for? 
+
   // event
   addBtn.addEventListener('click', (e) => {
     e.preventDefault();
     
-    // Question: What does this code do?
     // removes white space from strings
     let name = document.getElementById('name').value.trim();
     let phoneNumber = document.getElementById('phone-number').value.trim();
@@ -104,7 +103,7 @@
     };
 
    
-    // adds the character to the chracters array by fetching the array
+    // adds new tables to table array by fetching the array
     fetch('/api/tables', {
       method: 'POST',
       headers: {
