@@ -80,5 +80,46 @@
         </div>
     </footer>
 </div>
+<script type="text/javascript">
+      
+  const addBtn = document.getElementById('add-btn');
+  
+  // Question: What is "e" short for? 
+  // event
+  addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Question: What does this code do?
+    // removes white space from strings
+    let name = document.getElementById('name').value.trim();
+    let phoneNumber = document.getElementById('phone-number').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let id= document.getElementById('unique-id').value.trim();
+    
+    let newTable = {
+      name: name,
+      number: parseInt(phoneNumber),
+      email: email,
+      id: parseInt(id),
+    };
+
+   
+    // adds the character to the chracters array by fetching the array
+    fetch('/api/tables', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newTable),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
+</script>
 </body>
 </html>
