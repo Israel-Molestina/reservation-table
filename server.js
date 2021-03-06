@@ -36,9 +36,14 @@ app.post('/api/tables', (req, res) => {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     const newTable = req.body;
-  
-    tables.push(newTable);
-    res.json(newTable);
+    if (tables.length <= 5) {
+        tables.push(newTable);
+        res.json(newTable);
+    }
+    else {
+        waitlist.push(newTable);
+        res.join(newTable)
+    };
 });
 
 // start server to begin listening
