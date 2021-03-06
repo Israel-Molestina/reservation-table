@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Reservation at Zing Zucchinis </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/e9b8e84ab6.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center" style="color: green;">
+                <span style="font-size: 3eml; color: green;">
+                    <i class="fas fa-seedling"></i></span> Zing Zucchinis
+            </h1>
+            <hr />
+            <h2 class="text-center" style="color:green">
+                We only have 5 tables! Book your seat before they all are gone!
+            </h2>
+            <br />
+
+            <div class="text-center">
+                <a href="/reserve"><button type="button" class="btn btn-lg btn-success">
+                        <i class="far fa-calendar-check"></i> Make
+                        Reservation
+                    </button></a>
+                <a href="/"><button type="button" class="btn btn-lg btn-info">
+                        <i class="fas fa-utensils"></i>
+                    </button></a>
+
+
+            </div>
+        </div>
+<!--footer-->
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="#" id="clear" style="color:green">Clear Table</a> |
+                   <a href="/api/tables" style="color:green">API Table Link</a> | 
+                   <a href="/api/waitlist" style="color:green">API Wait List</a>
+                </p>
+
+            </div>
+        </footer>
+    </div>
+</body>
+<!--Write GET fetch request to get data and display for Reserved Table-->
+
+<!--Write GET fetch request to get data and dispaly for WaitList -->
+
+</html>
