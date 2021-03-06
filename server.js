@@ -5,7 +5,7 @@ const path = require('path');
 // set up express w/ two constants one for app and one for port
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 
 
@@ -25,23 +25,25 @@ app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html'
 // display current reservations  
 
 // display wait list  
-app.get('/api/tables', (req, res) => res.json(tobenamed));
+app.get('/api/tables', (req, res) => res.json(tables));
 
-app.get('/api/waitlist', (req, res) => res.json(tobenamed2));
+app.get('/api/waitlist', (req, res) => res.json(waitlist));
 
 
 // create post method to take in new reservation
-app.post('/api/characters', (req, res) => {
+app.post('/api/tables', (req, res) => {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    const newCharacter = req.body;
-
+    const newTable = req.body;
+  
     // Using a RegEx Pattern to remove spaces from newCharacter
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();
-    console.log(newCharacter);
+    newTable.routeName = newTable.name.replace(/\s+/g, '').toLowerCase();
+    console.log(newTable);
+  
+    tables.push(newTable);
+    res.json(newTable);
+  });
 
-    characters.push(newCharacter);
-    res.json(newCharacter);
-});
 // start server to begin listening
+app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
